@@ -1,22 +1,21 @@
+/* WORD LADDER Main.java
+ * EE422C Project 3 submission by
+ * <Ashvin Roharia>
+ * <ar34426>
+ * <16475>
+ * <Student2 Name>
+ * <Student2 EID>
+ * <Student2 5-digit Unique No.>
+ * Slip days used: <0>
+ * Git URL: https://github.com/aroharia/hw3
+ * Fall 2016
+ */
+
 package assignment3;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
-
-/* WORD LADDER Main.java
- * EE422C Project 3 submission by
- * Replace <...> with your actual data.
- * <Student1 Name>
- * <Student1 EID>
- * <Student1 5-digit Unique No.>
- * <Student2 Name>
- * <Student2 EID>
- * <Student2 5-digit Unique No.>
- * Slip days used: <0>
- * Git URL:
- * Fall 2016
- */
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -27,10 +26,15 @@ import java.util.Set;
 public class Main {
 	
 	// static variables and constants only here.
+	public static Scanner kb;	// input Scanner for commands
+	public static ArrayList<String> start_end_wordList; //array list containing start word and end word
+	public static String startWord; //first word for the word ladder
+	public static String endWord; //last word for the word ladder
+	public static Set<String> dictionaryWords; //all the words in the given dictionary
 	
 	public static void main(String[] args) throws Exception {
 		
-		Scanner kb;	// input Scanner for commands
+		
 		PrintStream ps;	// output file
 		// If arguments are specified, read/write from/to files instead of Std IO.
 		if (args.length != 0) {
@@ -41,17 +45,32 @@ public class Main {
 			kb = new Scanner(System.in);// default from Stdin
 			ps = System.out;			// default to Stdout
 		}
-		initialize();
-		parse(kb);
 		
-		// TODO methods to read in words, output ladder
+		// Reads user input and sets startWord and endWord
+		initialize();
+		
+		//Ashvin is working on currently
+		ArrayList<String> testingBFS = getWordLadderBFS(startWord, endWord);
+		
+		//TO DO
+		//printLadder(testingBFS);
+		
+		//TO DO
+		//ArrayList<String> testingDFS = getWordLadderDFS(startWord, endWord);
+		
+		//TO DO
+		//printLadder(testingDFS);
+
 	}
 	
 	public static void initialize() {
 		// initialize your static variables or constants here.
 		// We will call this method before running our JUNIT tests.  So call it 
 		// only once at the start of main.
-		makeDictionary();
+		dictionaryWords = makeDictionary();
+		start_end_wordList = parse(kb);
+		startWord = start_end_wordList.get(0).toString();
+		endWord = start_end_wordList.get(1).toString();
 	}
 	
 	/**
