@@ -3,8 +3,8 @@
  * <Ashvin Roharia>
  * <ar34426>
  * <16475>
- * <Student2 Name>
- * <Student2 EID>
+ * <Minkoo Park>
+ * <mp32454>
  * <Student2 5-digit Unique No.>
  * Slip days used: <0>
  * Git URL: https://github.com/aroharia/hw3
