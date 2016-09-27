@@ -218,7 +218,18 @@ public class Main {
 	 * @param ladder is the ArrayList of words in the ladder, or null if it doens't exist
 	 */
 	public static void printLadder(ArrayList<String> ladder) {
-
+		// if no ladder was found
+		if (ladder == null){
+			System.out.println("no word ladder can be found between " + startWord + " and " + endWord + ".");
+			return;
+		}
+		// if a ladder was found
+		else {
+			System.out.println("a " + (ladder.size()-2) + "-rung word ladder exists between " + startWord + " and " + endWord);
+			for(int i = 0; i < ladder.size(); i++){
+				System.out.println(ladder.get(i));
+			}
+		}
 	}
 	// TODO
 	// Other private static methods here
