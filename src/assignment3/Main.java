@@ -236,4 +236,42 @@ public class Main {
 	}
 	// TODO
 	// Other private static methods here
+	
+	/**
+	 * returns true if two words differ by only one character
+	 * @param String a first word of the pair to be checked 
+	 * @param String b second word of the pair to be checked
+	 */
+	private static boolean differentByOne(String a, String b) {
+		// do not consider if words have different length
+        assert a.length() == b.length();
+        // compute the number of different characters in two words
+        int diff = 0;
+        for (int i = 0; i < a.length(); i++) {
+            if (a.charAt(i) != b.charAt(i)) {
+            	diff++;            	
+            }
+            if (diff > 1){
+            	return false;   
+            }
+        }
+        return true;
+    }
+
+	/**
+	 * for a given node, finds all of its neighbors
+	 * which differ by one character from input word
+	 * @param String start is the start word
+	 * @param Set<String> dict is the dictionary of words
+	 */
+	private static ArrayList<String> findNeighbors(String start, Set<String> dict) {
+		ArrayList<String> Neighbors = new ArrayList<String>();
+		// for all the words in the dictionary, add neighboring nodes
+		for (String word : dict) {
+			if (differentByOne(start, word))  { 
+				Neighbors.add(word);}
+		}
+		// Neighbor is a list of all the words that differ by one character
+		return Neighbors;
+	}
 }
