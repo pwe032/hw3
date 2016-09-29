@@ -96,7 +96,12 @@ public class Main {
 		ArrayList<String> start_end_wordList = new ArrayList<String>(Arrays.asList(input.split(" ")));
 		return start_end_wordList;
 	}
-	
+	/**
+	 * Finds the word ladder of 2 words through DFS using recursion
+	 * @param start is the first word as a String
+	 * @param end is the last word as a String
+	 * @return ArrayList of the ladder or null if it doesn't exist
+	 */	
 	public static ArrayList<String> getWordLadderDFS(String start, String end) {
 		
 		// Returned list should be ordered start to end.  Include start and end.
@@ -218,14 +223,12 @@ public class Main {
 	 * @param ladder is the ArrayList of words in the ladder, or null if it doens't exist
 	 */
 	public static void printLadder(ArrayList<String> ladder) {
-		// if no ladder was found
-		if (ladder == null){
+		if (ladder == null){ // if ladder does not exist
 			System.out.println("no word ladder can be found between " + startWord + " and " + endWord + ".");
-			return;
 		}
-		// if a ladder was found
-		else {
+		else { // else if ladder is found, print the message
 			System.out.println("a " + (ladder.size()-2) + "-rung word ladder exists between " + startWord + " and " + endWord);
+			// print all the words in the ladder
 			for(int i = 0; i < ladder.size(); i++){
 				System.out.println(ladder.get(i));
 			}
